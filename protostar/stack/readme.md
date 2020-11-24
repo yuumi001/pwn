@@ -20,6 +20,24 @@ int main(int argc, char **argv)
   }
 }
 ```  
+Ta có cấu trúc của memory sẽ nhìn như này:
+```
+     high memory adddress
+    |====================|
+    |   name-parameter   |
+  s |====================|
+  t |   return address   |
+  a |====================|
+  c |    base-pointer    |
+  k |====================|
+    |                    |
+    |       buffer       |
+    |                    |
+    |====================|
+    |                    |
+    |....................|
+      low memory address
+```  
 
 # 2. Stack1  
 ## Source code  
