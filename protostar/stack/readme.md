@@ -22,23 +22,25 @@ int main(int argc, char **argv)
 ```  
 Ta có cấu trúc của memory sẽ nhìn như này:
 ```
-     high memory adddress
-    |====================|
-    |   name-parameter   |
-  s |====================|
-  t |   return address   |
-  a |====================|
-  c |    base-pointer    |
-  k |====================|
-    |                    |
-    |       buffer       |
-    |                    |
-    |====================|
-    |                    |
-    |....................|
+  |  high memory adddress
+  | |====================| 
+  | |   name-parameter   |  ^
+  | |====================|  | buffer
+  S |   return address   |  | direction
+  t |====================|  |
+  a |  base-pointer|'''''|  |
+  c |==============|'''''|  |
+  k |''''''''''''''''''''|  |
+  | |'''''''buffer'''''''|  |
+  | |''''''''''''''''''''|  |
+  | |====================|  |
+  | |                    |  |
+  | |....................|
       low memory address
 ```  
-
+  Khi inputs bằng gets() sẽ có lỗi buffer overflow làm cho giá trị nhập vào tràn qua base-pointer và return address do gets() sẽ lấy input mà không cần biết điểm dừng và tiếp tục lưu trữ nó dù đã vượt qua khoảng lưu chữ của buffer.  
+  Để hoàn thành stack0 ta cần phải thay đổi giá trị mặc định của `modified` thành khác `0`. Khi đó ta sẽ nhận được output `you have changed the 'modified' variable`.
+  
 # 2. Stack1  
 ## Source code  
 ```
