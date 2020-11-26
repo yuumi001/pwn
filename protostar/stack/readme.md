@@ -612,6 +612,7 @@ Mình đã lấy cái đầu tiên tìm được:
  80485f9:	c3                   	ret    
  80485fa:	90                   	nop
 ```
+Giải thích một chút, do địa chỉ ret ta đã thay thế vào bắt đầu bằng 0x0 != 0xb vậy nên `if` sẽ được bỏ qua và có thể tiến đến thực hiện việc `pop-pop-ret`. Ta sẽ cần thêm 2 biến garbage dùng cho câu lệnh `pop` và `ret` sẽ trả về giá trị trên đỉnh `stack`(mình đã giải thích ở stack3) vậy nên ngay sau `pop-pop-ret` sẽ là địa chỉ của `system()` và ta có thể chạy bình thường :3
 Ghép lại thành file payload nào :>  
 ```
 import struct
